@@ -7,11 +7,14 @@
   @endforeach --}}
   <div class="container">
     <div class="grid grid-cols-4 gap-3">
-    @foreach ($posts as $post)
+    
+    @forelse ($posts as $post)
     <a href="posts/{{$post->id}}">
       <x-cards.post-card : content="$post->content" :title="$post->title" :url_img="$post->url_img"/>
     </a>
-    @endforeach
+    @empty
+      <p class="text-center">Pas d'articles actuellement</p>
+      @endforelse
     </div>
   </div>
 </x-layouts.main-layout>
