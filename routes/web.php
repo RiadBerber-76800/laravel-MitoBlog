@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 
 /*
@@ -14,7 +15,9 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', [TestController::class, 'index'])->name("home");
+
+Route::get('/', [PostController::class, 'index'])->name("home");
+Route::resource("posts", PostController::class);
 Route::get('about', [TestController::class, 'about'])->name("about");
 
 
