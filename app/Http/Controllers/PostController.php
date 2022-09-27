@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
       // 1 Retreive all post from models Post
-        $posts= Post::orderBy('created_at', 'desc')->get();
+        $posts= Post::orderBy('updated_at', 'desc')->limit(3)->get();
       //2 send data to view
       return view("pages.home", compact("posts"));
     }
@@ -88,7 +88,26 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        if($request->has('is_published')) {
+          $published = 1;
+        }
+
+        $request->validate([
+        "title" => "required|min:5|string|max:20|unique:posts,title",
+        "content" => "required|min:20|max:350|string",
+        ]);
+
+        $post->update([
+          "title" =>$request->title,
+          "content" =>$request->content,
+          "url_img" =>$request->url_img,
+          "is_published" =>$published,
+          "updated_at"=> now()
+        ]);
+        return redirect()
+        ->route('home')
+        ->with('staus', 'Le Post a bien été modifié');
+
     }
 
     /**
