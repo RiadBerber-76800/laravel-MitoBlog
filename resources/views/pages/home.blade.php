@@ -7,10 +7,10 @@
   @endforeach --}}
   <div class="container">
     <div class="grid grid-cols-4 gap-3">
-    
+
     @forelse ($posts as $post)
     <a href="posts/{{$post->id}}">
-      <x-cards.post-card : content="$post->content" :title="$post->title" :url_img="$post->url_img"/>
+      <x-cards.post-card :content="$post->content" :title="$post->title" :url_img="$post->url_img"/>
     </a>
     @empty
       <p class="text-center">Pas d'articles actuellement</p>
