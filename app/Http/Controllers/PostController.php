@@ -17,7 +17,7 @@ class PostController extends Controller
   public function index()
   {
     // 1 Retreive all post from models Post
-    $posts = Post::orderBy('updated_at', 'desc')->limit(3)->get();
+    $posts = Post::orderBy('updated_at', 'desc')->paginate('4');
     //2 send data to view
     return view("pages.home", compact("posts"));
   }
