@@ -6,10 +6,41 @@
     @auth
 
     <div class="pt-6">
-      <x-btn-delete :post="$post" />
-      <a href="{{$post->id}}/edit" class="btn btn-success">Modifier</a>
+        <x-btn-delete :post="$post" />
+        <a href="{{$post->id}}/edit" class="btn btn-success">Modifier</a>
+      </div>
+      @endauth
+    <div class="my-14 bg-blue-200 p-5 ">
+      <h2 class="text-4xl font-black">Commentaires</h2>
+      @guest
+        <p class="text-center py-6">Connecte toi pour poster un commentaire !!!</p>
+      @endguest
+      @auth
+
+      <form action="{{ route("comment.store", $post->id) }}" method="POST">
+        @csrf
+        <input type="text" placeholder="Votre commentaire" name="content">
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+        <x-error-msg name="content"/>
+      </form>
+      @endauth
+      <div class="bg-gray-50 p-5">
+        @forelse ($post->comments as $comment )
+        <div class=" my-2 bg-gray-200 p-2">
+          <p class="">{{ $comment->content }}</p>
+          <p class="text-xs text-gray-500">crée le {{ $comment->created_at->format("d/m/y") }}</p>
+
+
+        </div>
+
+        @empty
+        <p>Soyez le 1er à écrire un commentaire !!!</p>
+
+        @endforelse
+      </div>
     </div>
-    @endauth
   </div>
+
+
 </x-layouts.main-layout>
 
