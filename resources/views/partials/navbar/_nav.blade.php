@@ -12,6 +12,7 @@
       <a class="{{$styleLink}}"href="{{route('register')}}">Inscription</a>
       @endguest
     @auth
+    <a class="{{$styleLink}}"href="{{route('dashboard')}}">Dashboard</a>
     <x-btn-logout />
     <span > {{ Auth::user()->name}} </span>
     @endauth

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,9 @@ use App\Http\Controllers\PostController;
 //     return view('welcome');
 // });
 Route::get('/', [PostController::class, 'index'])->name("home");
-Route::resource("posts", PostController::class)->except(["posts.show"]);
+Route::resource("posts", PostController::class);
+Route::get("/all-posts", [PostController::class, "allPosts"])->name("posts.all");
+Route::get("/all-users", [UserController::class, "allUsers"])->name("users.all");
 
 
 
