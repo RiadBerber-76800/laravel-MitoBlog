@@ -11,12 +11,18 @@
       <textarea name="content" id="" cols="30" rows="10" class="mt-5 block w-full rounded-lg border-gray-400" placeholder="Votre contenu....">{{old('content')}}</textarea>
       <x-error-msg name='content'/>
       {{--image--}}
-      <div class="div">
-        <label for="">Choisi une image</label>
+      <x-error-msg name="content"/>
+        <div class="">
+          <label for="">Image vedette:</label>
+          <input type="file" name="url_img" id="" class="block">
+        </div>
+        <button class="btn-primary btn mt-6 w-full">Envoyer</button>
+      </x-error-msg name="url_img />"
+      {{-- <div class="div">
+        <label for="">Image vedette:</label>
         <input type="file" name="url_img" id="" class="block">
-      </div>
+      </div> --}}
       {{-- <input type="text" class="mt-5 block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre imge" value="https://source.unsplash.com/640x480/?animals?1"> --}}
-      <button class="btn-primary btn mt-6 w-full">Envoyer</button>
     </div>
   </form>
 </div>
