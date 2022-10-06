@@ -7,9 +7,10 @@
       <div class="space-y-2 bg-gray-200 p-3">
         @foreach ($post->images as $image )
           <img src="{{ asset($image->slug)}}" alt="" class="w-40">
-        @auth
+        {{-- @auth
         <a href="{{route("delete.img", $image->id)}}" class="btn btn-outline-info btn-xs ">X</a>
-        @endauth
+        @endauth --}}
+        <x-link-delete routeName="delete.img" :itemId="$image->id" linkName="X" />
         @endforeach
       </div>
       @endif

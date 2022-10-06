@@ -8,7 +8,7 @@
         <a class="{{$styleLink}}"href="{{ route('posts.create')}}">New posts</a>
         <a class="{{$styleLink}}"href="{{route("posts.all")}}">Liste des posts</a>
         <a class="{{$styleLink}}"href="{{route("users.all")}}">Liste des utilisateurs</a>
-        <a class="{{$styleLink}}"href="{{route("users.all")}}">Liste des Catégories</a>
+        <a class="{{$styleLink}}"href="{{route("categories.home")}}">Gérer des Catégories</a>
       </div>
     </div>
 </x-layouts.main-layout>
