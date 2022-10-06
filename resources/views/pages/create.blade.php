@@ -16,8 +16,15 @@
           <label for="">Image vedette:</label>
           <input type="file" name="url_img" id="" class="block">
         </div>
-        <button class="btn-primary btn mt-6 w-full">Envoyer</button>
-      </x-error-msg name="url_img />"
+      </x-error-msg name="url_img" />
+    </div>
+    <x-error-msg name="content"/>
+    <div class="">
+      <label for="">Others Image :</label>
+      <input type="file" name="images[]" id="" multiple class="block">
+    </div>
+  </x-error-msg name="images" />
+    <button class="btn-primary btn mt-6 w-full">Envoyer</button>
       {{-- <div class="div">
         <label for="">Image vedette:</label>
         <input type="file" name="url_img" id="" class="block">

@@ -23,6 +23,8 @@ Route::resource("posts", PostController::class);
 Route::get("/all-posts", [PostController::class, "allPosts"])->name("posts.all");
 Route::get("/all-users", [UserController::class, "allUsers"])->name("users.all");
 
+//delete image post
+Route::get("/posts/remove-img/{id}", [PostController::class, "removeImage"])->name("delete.img");
 Route::post("/comment/{id} ", [CommentController::class, 'store'] )->name("comment.store");
 
 Route::get('/dashboard', function () {

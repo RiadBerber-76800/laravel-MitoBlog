@@ -1,6 +1,20 @@
+
+
 <x-layouts.main-layout :title="$post->title">
   <div class="container mb-10">
-    <img src="{{ asset('storage/' .$post->url_img) }}" alt="{{$post->title}}">
+    <div class="flex space-x-4">
+      @if(count($post->images) > 0)
+      <div class="space-y-2 bg-gray-200 p-3">
+        @foreach ($post->images as $image )
+          <img src="{{ asset($image->slug)}}" alt="" class="w-40">
+        @auth
+        <a href="{{route("delete.img", $image->id)}}" class="btn btn-outline-info btn-xs ">X</a>
+        @endauth
+        @endforeach
+      </div>
+      @endif
+      <img class="max-w-[520px]" src="{{ asset('storage/' .$post->url_img) }}" alt="{{$post->title}}">
+    </div>
     <p class="text-3xl font-black py-8">{{$post->title}}</p>
     <p>{!!nl2br(e($post->content))!!}</p>
     @auth

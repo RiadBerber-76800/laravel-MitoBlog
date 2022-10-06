@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Images;
 use App\Models\Comment;
 use App\Models\FeaturedImage;
 use Illuminate\Database\Eloquent\Model;
@@ -17,5 +18,8 @@ class Post extends Model
     }
     public function featuredImage(){
       return $this->hasOne(FeaturedImage::class);
+    }
+    public function images(){
+      return $this->hasMany(Images::class);
     }
 }

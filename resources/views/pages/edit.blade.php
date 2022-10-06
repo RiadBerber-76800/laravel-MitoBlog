@@ -22,6 +22,12 @@
         <label for="">Choisi une image</label>
         <input type="file" name="url_img" id="" class="block">
       </div>
+      <x-error-msg name="content"/>
+    <div class="">
+      <label for="">Others Image :</label>
+      <input type="file" name="images[]" id="" multiple class="block">
+    </div>
+    </x-error-msg name="images" />
       {{-- <input type="text" class="mt-5 block w-full rounded-lg border-gray-400" name="url_img" placeholder="Url de votre imge" value="https://source.unsplash.com/640x480/?animals?1"> --}}
       <button class="btn-primary btn mt-6 w-full">Envoyer</button>
     </div>
