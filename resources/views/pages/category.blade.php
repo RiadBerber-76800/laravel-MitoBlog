@@ -14,7 +14,8 @@
       <p class="pb-5 text-2xl">{{$category->category}}</p>
       <div class="border-b py-3 flex space-x-4">
         <a href="" class="btn btn-success">Modifier</a>
-        <a href="" class="btn btn-error">Supprimer</a>
+        {{-- <a href="" class="btn btn-error">Supprimer</a> --}}
+        <x-link-delete routeName="delete.categoy" :itemId="$category->id" linkName="Supprimer/>
       </div>
       @empty
       <p class="">Pas de catégorie enregistrée actuellement</p>
