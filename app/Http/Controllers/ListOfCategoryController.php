@@ -41,4 +41,41 @@ class ListOfCategoryController extends Controller
         // redirection
         return back()->with("status", "Category added");
     }
+    /**
+     * Delete category
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function delete($id){
+      $category = ListOfCategory::find($id);
+      if(!$category) {
+        abort (404);
+
+      }
+      $category->delete();
+      return back()->with('status', "Category delete");
+    }
+    /**
+     * send the view to edit form with the good caregory
+     *
+     * @param [type] $id
+     * @return void
+     */
+    public function edit($id){
+      $category = ListOfCategory::find($id);
+      return view("pages.update-category", compact('category'));
+    }
+    /**
+     * update the current category and store in BDD
+     *
+     */
+    public function update(Request $request, $id){
+      $category = ListOfCategory::find($id);
+      
+      //validation du formulaire
+      $request->validate([
+        'category' =>  "required|string|max:20|min:1"
+      ]);
+    }
 }

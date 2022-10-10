@@ -34,6 +34,10 @@ Route::middleware(["auth"])->prefix("dashboard")->group(function(){
   // category
 Route::get ("/list-category", [ListOfCategoryController::class, "index"])->name('categories.home');
 Route::post("/list-category", [ListOfCategoryController::class, "store"])->name("category.store");
+Route::get("/list-category/delete/{id}", [ListOfCategoryController::class, "delete"])->name("category.delete");
+Route::get("/list-category/edit/{id}", [ListOfCategoryController::class, "edit"])->name("category.edit");
+Route::post("/list-category/update/{id}", [ListOfCategoryController::class, "update"])->name("category.update");
+
 
 Route::get("/all-posts", [PostController::class, "allPosts"])->name("posts.all");
 Route::get("/all-users", [UserController::class, "allUsers"])->name("users.all");
